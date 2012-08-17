@@ -33,8 +33,32 @@
                 }
                 return months[this.getMonth()];
             }
-			
-			
+
+
+            //Parses date string in the following formats 2000-01-01T12:00:00+00:00 or 2000-01-01 12:00:00
+            Date.prototype.fromW3CString = function(dateString){
+                var dateTime = dateString.split(" ");
+                if(dateTime.length != 2){
+                    dateTime = dateString.split("T");
+                    if(dateTime.length != 2)
+                        return NaN;
+                }
+                var date = dateTime[0].split("-");
+                if(date.length != 3){
+                    return NaN;
+                }
+                this.year = date[0]; this.month = date[1]; this.day = date[2];
+
+                var timeandzone = dateTime[1].split("+");
+                var time = timeandzone[0].split(":");
+                if(time.length != 3){
+                    return NaN;
+                }
+                this.hour = time[0]; this.minute = time[1]; this.second = time[2];
+
+                this.setMonth(this.month - 1);
+                return new Date(this.getFullMonth() + " " + this.day + ", " + this.year + " " + this.hour + ":" + this.minute + ":" + this.second );
+            }
 			
 			var mockDate = new Date("January 1, 2000 12:00:00");
 			module("Tests for a custom Date Compare Using "+ mockDate.toUTCString());
