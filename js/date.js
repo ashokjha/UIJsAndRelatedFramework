@@ -24,6 +24,14 @@
 					return age-1;
 				return age;
 			}
+
+            Date.prototype.getFullMonth = function(){
+                var months = ["January", "February","March", "April","May", "June","July", "August","September", "October","November", "December"];
+                if(arguments.length > 0 && arguments[0]){
+                    return months[this.getMonth()].substring(0,3);
+                }
+                return months[this.getMonth()];
+            }
 			
 			
 			
