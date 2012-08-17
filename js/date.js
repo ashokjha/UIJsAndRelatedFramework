@@ -12,15 +12,16 @@
 				if(ms<dateMs)
 					return 1;				
 			}
-			Date.prototype.CalculateBirthday=function(date){
-				if(this.Compare(date)!=-1)
+            
+			Date.prototype.CalculateAge=function(age){
+				if(this.Compare(age)!=-1)
 					return 0;
-				var age = this.getUTCFullYear()-date.getUTCFullYear();
-				if(this.getUTCMonth()>date.getUTCMonth())
+				var age = this.getUTCFullYear()-age.getUTCFullYear();
+				if(this.getUTCMonth()>age.getUTCMonth())
 					return age;
-				if(this.getUTCMonth()<date.getUTCMonth())
+				if(this.getUTCMonth()<age.getUTCMonth())
 					return age-1;
-				if(this.getUTCDate()<date.getUTCDate())
+				if(this.getUTCDate()<age.getUTCDate())
 					return age-1;
 				return age;
 			}
@@ -56,18 +57,18 @@
 			test("Testing A Date of Birth", function () {
 				var dob = new Date("January 1, 1962 12:00:00");
 				var expectedAge = 38;
-				equal(mockDate.CalculateBirthday(dob), expectedAge, "The person with DOB "+ dob.toUTCString() +" should be "+expectedAge);
+				equal(mockDate.CalculateAge(dob), expectedAge, "The person with DOB "+ dob.toUTCString() +" should be "+expectedAge);
 			});
 			
 			test("Testing A Date of Birth after", function () {
 				var dob = new Date("January 1, 2001 12:00:00");
-				equal(mockDate.CalculateBirthday(dob), 0, "The person with DOB "+ dob.toUTCString() +" was not born by"+ mockDate.toUTCString());
+				equal(mockDate.CalculateAge(dob), 0, "The person with DOB "+ dob.toUTCString() +" was not born by"+ mockDate.toUTCString());
 			});
 			
 			test("Testing A Date Of Birth where the month has yet to pass", function () {
 				var dob = new Date("February 1, 1962 12:00:00");
 				var expectedAge = 37;
-				equal(mockDate.CalculateBirthday(dob), expectedAge, "The person with DOB "+ dob.toUTCString() +" should be "+expectedAge);
+				equal(mockDate.CalculateAge(dob), expectedAge, "The person with DOB "+ dob.toUTCString() +" should be "+expectedAge);
 			});
 
 
