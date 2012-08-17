@@ -13,15 +13,15 @@
 					return 1;				
 			}
             
-			Date.prototype.CalculateAge=function(age){
-				if(this.Compare(age)!=-1)
+			Date.prototype.CalculateAge=function(date){
+				if(this.Compare(date)!=-1)
 					return 0;
-				var age = this.getUTCFullYear()-age.getUTCFullYear();
-				if(this.getUTCMonth()>age.getUTCMonth())
+				var age = this.getUTCFullYear()-date.getUTCFullYear();
+				if(this.getUTCMonth()>date.getUTCMonth())
 					return age;
-				if(this.getUTCMonth()<age.getUTCMonth())
+				if(this.getUTCMonth()<date.getUTCMonth())
 					return age-1;
-				if(this.getUTCDate()<age.getUTCDate())
+				if(this.getUTCDate()<date.getUTCDate())
 					return age-1;
 				return age;
 			}
@@ -73,55 +73,5 @@
 
 
 
-			module( "TESTING HTML Structure" );
-
-			$.each( { div: "#testArea"}, function( type, selector ) {
-				test( "Verify specific element exists in: " + type, function() {
-					expect( 5 ); //Tells QUnit to expect five tests
-					var element = $( selector );
-					
-					ok( element.find( "#access" ), "Test area has an area to display whether access is granted" );
-					
-					notEqual( element.find( "#access" ).attr("style").indexOf("display: none"), -1,
-						"By default the area to display whether access is granted should not be displayed" ); //The way this test is displayed is a bit confusing, but it works
-						
-					equal( element.find( "input[type=text]" ).length, 1,"has an input field" );
-					
-					equal( element.find( "input[type=button]" ).length, 1, "has a button" );
-					
-					deepEqual( element.find( "#dob" ).next().get(), element.find( "#checkAge" ).get(), "Ensures button is right after input field" );
-				});
-			});
-
-
-
-
-			module( "TESTING Functionality" );
-
-			test( "Submitting various dates of birth to ensure the appropriate response is displayed", function() {
-				expect( 4 ); 
-				
-				testWithBirthday("");
-				notEqual( $( "#access" ).attr("style").indexOf("display: none"), -1, "When NO dob is entered the access granted display area should be hidden" ); 
-				
-				testWithBirthday("October 10, 2000");				
-				equal( $( "#access" ).attr("style").indexOf("display: none"), -1, "When a dob is entered the access granted display are should be displayed" ); 
-				equal( $( "#access" ).html(), "You are not old enough", "When a dob is entered for a person under 18 the access granted area should tell them they're not old enough" ); 
-				
-				testWithBirthday("October 10, 1985");
-				equal( $( "#access" ).html(), "ACCESS GRANTED!", "When a dob is entered for a person over 18 the access granted area should tell them ACCESS GRANTED!" );
-				cleanUpTestArea(); 
-			});
-			
-			function testWithBirthday(dob)
-			{
-				$("#dob").val(dob);
-				$("#checkAge").click();				
-			}
-			
-			function cleanUpTestArea(){
-				$("#dob").val("");
-				$("#access").hide();
-			}
 			
 			
