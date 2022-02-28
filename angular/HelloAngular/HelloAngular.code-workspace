@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "..\\js_poc"
+    },
+    {
+      "path": "..\\ts_hello"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "HelloAngular"
+  }
+}
