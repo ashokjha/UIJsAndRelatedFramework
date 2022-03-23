@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flex Box Practice</title>
+  </head>
+  <body>
+    <div style="display: flex; direction: row">
+      <div style="background-color: lightblue">Div1</div>
+      <div style="background-color: lightpink">Div2</div>
+    </div>
+
+    <div style="display: flex; margin-top: 20px; direction: row">
+      <div style="background-color: lightblue; width: 100px">Div1-100px</div>
+      <div style="background-color: lightpink; flex: 1">Div2 flex-1</div>
+    </div>
+    <div style="display: flex; margin-top: 20px; direction: row">
+      <div style="background-color: lightblue; width: 100px">Div1 100px</div>
+      <div style="background-color: lightpink; flex: 1">Div2 flex 1</div>
+      <div style="background-color: lightgreen; flex: 2">Divs3 flex 2</div>
+    </div>
+    <div
+      style="
+        display: flex;
+        margin-top: 20px;
+        direction: row;
+        width: 100px;
+        border: 1px;
+        border-color: gray;
+        border-style: solid;
+        align-items: center;
+        justify-content: start;
+      "
+    >
+      <div style="background-color: lightblue; width: 100px">Div1 100px</div>
+      <div style="background-color: lightpink; width: 100px">Div2 100px</div>
+      <div style="background-color: lightgreen; width: 100px">Div3 100px</div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        margin-top: 20px;
+        direction: row;
+        border: 1px;
+        border-color: gray;
+        border-style: solid;
+        justify-content: space-between;
+      "
+    >
+      <div style="background-color: lightblue; width: 100px">Div1 100px</div>
+      <div style="background-color: lightpink; width: 100px">Div2 100px</div>
+      <div style="background-color: lightgreen; width: 100px">Div3 100px</div>
+    </div>
+    <div
+      style="
+        display: flex;
+        margin-top: 20px;
+        direction: row;
+        border: 1px;
+        border-color: gray;
+        border-style: solid;
+        justify-content: space-between;
+        align-items: right;
+      "
+    >
+      <div style="background-color: lightblue; width: 100px">Div1 100px</div>
+      <div style="background-color: lightpink; width: 100px">Div2 100px</div>
+      <div style="background-color: lightgreen; width: 100px">Div3 100px</div>
+    </div>
+  </body>
+</html>

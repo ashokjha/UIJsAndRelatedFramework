@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Grid</title>
+  </head>
+  <body>
+    <div
+      style="
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 100px 1fr 2fr;
+      "
+    >
+      <div style="background-color: lightblue; text-align: center">100px</div>
+      <div style="background-color: red; text-align: center">1fr</div>
+      <div style="background-color: lightslategray; text-align: center">
+        2fr
+      </div>
+      <div style="background-color: lightgreen; text-align: center">extra</div>
+    </div>
+    <div
+      style="
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 10px;
+      "
+    >
+      <div
+        style="
+          background-color: lightblue;
+          vertical-align: center;
+          height: 200px;
+        "
+      >
+        1fr
+      </div>
+      <div style="background-color: red; text-align: center; height: 200px">
+        1fr
+      </div>
+      <div
+        style="
+          background-color: lightslategray;
+          vertical-align: center;
+          height: 200px;
+        "
+      >
+        1fr
+      </div>
+      <div style="background-color: red; text-align: center; height: 200px">
+        1fr
+      </div>
+      <div
+        style="
+          background-color: lightslategray;
+          vertical-align: center;
+          height: 200px;
+        "
+      >
+        1fr
+      </div>
+      <div
+        style="
+          background-color: lightblue;
+          vertical-align: center;
+          height: 200px;
+        "
+      >
+        1fr
+      </div>
+    </div>
+  </body>
+</html>
